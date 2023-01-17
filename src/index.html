@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Инспектор </title>
+    <script type="module" src="/main.js" defer></script>
+    </style>
+  </head>
+
+  <body>
+
+      <div class="row">
+        <div>
+          <input id="greet-input" placeholder="Введите имя процесса..." />
+          <input type="checkbox" id="checkrun" title="Выполняемые">Только выполняемые</input>
+          <button id="version-button" type="button">Старт</button>
+          <button id="stopversion-button" type="button">Стоп</button>
+          </div>
+        <canvas id="canvas-id"></canvas>
+      </div>
+
+      <div id="greet-msg" style="padding-top: 0.5em; padding-bottom: .5em;"></div>
+
+      <div id="version-msg"></div>
+  </body>
+</html>
