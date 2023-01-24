@@ -7,8 +7,8 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "fotopolka",
-    "version": "0.0.1"
+    "productName": "MeminfoProcess",
+    "version": "0.0.2"
   },
   "tauri": {
     "allowlist": {
@@ -21,20 +21,16 @@
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
-      "copyright": "",
+      "copyright": "Polyakov Dimitri Vladimirovich <almaz-vil@list.ru>",
       "deb": {
         "depends": []
       },
       "externalBin": [],
       "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
+        "icons/icon.png"
       ],
-      "identifier": "fotopolka",
-      "longDescription": "",
+      "identifier": "MeminfoProcess",
+      "longDescription": "MeminfoProcess - простой мониторинг системы.",
       "macOS": {
         "entitlements": null,
         "exceptionDomain": "",
@@ -43,7 +39,7 @@
         "signingIdentity": null
       },
       "resources": [],
-      "shortDescription": "",
+      "shortDescription": "MeminfoProcess - простой мониторинг системы с GUI. Упрощение работы с Linux",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
@@ -62,7 +58,7 @@
         "fullscreen": false,
         "height": 800,
         "resizable": true,
-        "title": "fotopolka",
+        "title": "MeminfoProcess",
         "width": 1200
       }
     ]

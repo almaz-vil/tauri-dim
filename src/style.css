@@ -17,11 +17,20 @@
 
 .row{
   display: flex;
-  align-items: baseline;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  
 }
 
-#checkrun{
+#checkrundiv{
   background-color: #396cd8;
+  padding: .5em;
+}
+
+canvas{
+  margin: 5px;
 }
 
 input,
@@ -63,6 +72,10 @@ table{
   border: 2px solid gold;
   width: 100%;
   border-collapse: collapse;
+}
+
+#version-msg{
+  color: #0f0f0f;
 }
 
 th{

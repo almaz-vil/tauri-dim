@@ -14,14 +14,21 @@
       <div class="row">
         <div>
           <input id="greet-input" placeholder="Введите имя процесса..." />
-          <input type="checkbox" id="checkrun" title="Выполняемые">Только выполняемые</input>
           <button id="version-button" type="button">Старт</button>
           <button id="stopversion-button" type="button">Стоп</button>
-          </div>
+          <button id="id-button" type="button">ID</button>
+          <button id="name-button" type="button">Имя</button>
+          <button id="mem-button" type="button">Память</button>
+          <button id="cpu-button" type="button">CPU</button>
+          <input type="checkbox" id="checkrun" title="Выполняемые">Только&nbsp;выполняемые</input>
+         </div>
         <canvas id="canvas-id"></canvas>
+        <div>
+        <div id="greet-msg" style="padding-top: 0.5em; padding-bottom: .5em;"></div>
+        <div id="infoproc"></div>
+        <div id="msgloadcpu"></div>
+        </div>
       </div>
-
-      <div id="greet-msg" style="padding-top: 0.5em; padding-bottom: .5em;"></div>
 
       <div id="version-msg"></div>
   </body>

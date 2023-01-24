@@ -1,8 +1,8 @@
 [package]
-name = "fotopolka"
-version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
+name = "meminfoprocess"
+version = "0.0.2"
+description = "MeminfoProcess - простой мониторинг системы с GUI. Упрощение работы с Linux"
+authors = ["Polyakov Dimitri Vladimirovich <almaz-vil@list.ru>"]
 license = ""
 repository = ""
 edition = "2021"
@@ -20,6 +20,7 @@ tauri = { version = "1.2", features = ["shell-open"] }
 chrono="0.4.23"
 walkdir="2.3.2"
 page_size="0.5.0"
+nix="0.26.1"
 [features]
 # by default Tauri runs in production mode
 # when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL
