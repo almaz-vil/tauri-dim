@@ -1,0 +1,33 @@
+#labeltext {
+  font-size: 18px;
+  color: black;
+  border: 1px solid blue;
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+#labelmemtotal{
+  font-size: 18px;
+  color: black;
+}
+#labelmemfree{
+  font-size: 18px;
+  color: black;
+}
+#labelmemzaneto{
+  font-size: 18px;
+  color: black;
+}
+#labelproctotal{
+  font-size: 18px;
+  color: black;
+}
+#textw{
+  font-size: 18px;
+  color: black;
+}
+
+#panel{
+  background-color: yellow;
+  border: 1px solid black;
+}
