@@ -62,6 +62,43 @@ impl InfoMem {
     }
 }
 
+///Информация о загрузки процессора
+/// #[derive(Clone)]
+pub struct LoadAvg{
+   pub loadm: f32,
+   pub loadm_5: f32,
+   pub loadm_15: f32,    
+}
+
+impl LoadAvg{
+    pub fn get_load_avg()->LoadAvg{
+        let mut loadcpu= LoadAvg{
+            loadm: 0.0,
+            loadm_5: 0.0,
+            loadm_15: 0.0,
+        };
+        let f_smaps = File::open("/proc/loadavg").unwrap();
+        let buf_smaps=BufReader::new(f_smaps);
+        let mut iter_s=buf_smaps.lines();
+        let line= match iter_s.next() {
+            Some(l) => l.unwrap(),
+            None => return  loadcpu
+        };
+        let v: Vec<&str>=line.split(" ").collect();
+        loadcpu.loadm=v[0].parse::<f32>().unwrap();
+        loadcpu.loadm_5=v[1].parse::<f32>().unwrap();
+        loadcpu.loadm_15=v[2].parse::<f32>().unwrap();
+        loadcpu
+    }
+}    
+
+pub enum SortInfoProc{
+    Name,
+    ID,
+    Memory,
+    State,
+    CPU
+} 
 #[derive(Clone,  PartialEq, PartialOrd)]
 pub struct InfoProc{
    pub id: i32,
@@ -161,7 +198,7 @@ impl InfoProc {
     }
 
 
-    pub fn proc_info(insort: i32, filter: String)->Vec<InfoProc>{
+    pub fn proc_info(sort: SortInfoProc, filter: String)->Vec<InfoProc>{
         let home = "/proc/";
         let mut path = PathBuf::new();
         path.push(home);
@@ -243,11 +280,12 @@ impl InfoProc {
             var_info.loadcpu(n_file.clone());
             list.push(var_info);    
         };
-        match insort {
-        0=>{list.sort_by(|a, b| {a.id.cmp(&b.id)});} ,
-        1=>{list.sort_by(|a, b| {a.name.cmp(&b.name)});},
-        3=>{list.sort_by(|b, a| {a.loadcpu.total_cmp(&b.loadcpu)});},
-        _=> {list.sort_by(|b, a| {a.vmsize.total_cmp(&b.vmsize)});}
+        match sort {
+            SortInfoProc::ID=>{list.sort_by(|a, b| {a.id.cmp(&b.id)});} ,
+            SortInfoProc::Name=>{list.sort_by(|a, b| {a.name.cmp(&b.name)});},
+            SortInfoProc::CPU=>{list.sort_by(|b, a| {a.loadcpu.total_cmp(&b.loadcpu)});},
+            SortInfoProc::Memory=> {list.sort_by(|b, a| {a.vmsize.total_cmp(&b.vmsize)});},
+            SortInfoProc::State=>{list.sort_by(|b, a| {a.state.cmp(&b.state)});},
         }
         
         list
