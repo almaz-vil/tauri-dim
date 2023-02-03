@@ -1,8 +1,18 @@
 [package]
-name = "gtk-3"
+name = "MemInfoProc-gtk"
 version = "0.1.0"
 edition = "2021"
+authors = ["Polyakov Dimitri Vladimirovich <almaz-vil@list.ru>"]
+description = "MeminfoProcess-gtk - простой мониторинг системы с GUI. Упрощение работы с Linux"
 
+[package.metadata.bundle]
+identifier = "ru.Dimon.MemInfoProc-gtk"
+icon=["icons/ico.png"]
+short_description = "MeminfoProcess-gtk - простой мониторинг системы с GUI. Упрощение работы с Linux"
+long_description = "MeminfoProcess-gtk - простой мониторинг системы с GUI. Упрощение работы с Linux"
+authors = ["Polyakov Dimitri Vladimirovich <almaz-vil@list.ru>"]
+license = ""
+category ="Utilities"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

@@ -18,6 +18,7 @@ fn main() {
 }
 
 fn build_ui(app: &Application) {
+    
     let edit = gtk::Entry::new();
     let  label_mem_free= gtk::Label::new(Some("Общая память"));
     label_mem_free.set_halign(gtk::Align::Start);
@@ -126,7 +127,8 @@ fn build_ui(app: &Application) {
         label_proc_total.set_markup(format!("Процессов: <b>{}</b>  занято памяти <b>{:.2}</b>Мб.",count_proc, count_mem_proc).as_str());
         glib::Continue(true)
     };
-
+    
+    
         let window = ApplicationWindow::builder()
             .application(app)
             .default_width(620)
