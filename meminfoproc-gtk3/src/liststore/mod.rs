@@ -48,8 +48,8 @@ pub fn update_model(model: &gtk::ListStore, data: Vec<InfoProc>){
     }
 }
 
-pub fn add_columns(treeview: &gtk::TreeView) {
-    
+pub fn add_columns(treeview: &gtk::TreeView, ) {
+     
     // Column for bug ID
     {
         let renderer = gtk::CellRendererText::new();

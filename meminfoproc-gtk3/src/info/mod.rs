@@ -6,9 +6,9 @@ use std::str::FromStr;
 ///Информация о памяти
 pub struct InfoMem{
     ///Доступная память **total** 
-    pub total: f32,
+    pub total: f64,
     ///Свободная память **free** 
-    pub free: f32,
+    pub free: f64,
 }
 impl std::fmt::Debug for InfoMem {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -43,7 +43,7 @@ impl InfoMem {
             if line.contains("MemTotal:"){
                 let total=line[9..].to_string().trim().to_string().trim_end_matches(" kB").to_string();
                 mem.total=match i32::from_str_radix(total.as_str(), 10){
-                    Ok(x)=>x as f32,
+                    Ok(x)=>x as f64,
                     Err(_)=>0.0
                 };
                 continue;
@@ -51,14 +51,13 @@ impl InfoMem {
             if line.contains("MemFree:"){
                 let free=line[8..].to_string().trim().to_string().trim_end_matches(" kB").to_string();
                 mem.free= match i32::from_str_radix(free.as_str(), 10){
-                    Ok(x)=>x as f32,
+                    Ok(x)=>x as f64,
                     Err(_)=>0.0
                 };
                 continue;
             }
         }
-        mem.kb_in_mb();
-        mem
+         mem
     }
 }
 
@@ -198,7 +197,7 @@ impl InfoProc {
     }
 
 
-    pub fn proc_info(sort: SortInfoProc, filter: String)->Vec<InfoProc>{
+    pub fn proc_info(sort: SortInfoProc, filter: String, run:bool)->Vec<InfoProc>{
         let home = "/proc/";
         let mut path = PathBuf::new();
         path.push(home);
@@ -278,7 +277,14 @@ impl InfoProc {
             }
             var_info.kb_in_mb();
             var_info.loadcpu(n_file.clone());
-            list.push(var_info);    
+            if run {
+                if var_info.state.contains("R"){
+                    list.push(var_info);        
+                }
+                }
+            else{
+                list.push(var_info);    
+            }
         };
         match sort {
             SortInfoProc::ID=>{list.sort_by(|a, b| {a.id.cmp(&b.id)});} ,

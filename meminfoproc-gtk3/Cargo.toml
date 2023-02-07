@@ -1,6 +1,6 @@
 [package]
-name = "MemInfoProc-gtk"
-version = "0.1.0"
+name = "MeminfoProcess-gtk"
+version = "0.1.1"
 edition = "2021"
 authors = ["Polyakov Dimitri Vladimirovich <almaz-vil@list.ru>"]
 description = "MeminfoProcess-gtk - простой мониторинг системы с GUI. Упрощение работы с Linux"
